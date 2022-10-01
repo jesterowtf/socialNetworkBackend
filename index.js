@@ -10,7 +10,7 @@ import {authMiddleware} from "./middleware/authMiddleware.js";
 import multer from "multer";
 import uploadRouter from "./routes/uploadRouter.js";
 
-const PORT = process.env.PORT || 3005;
+const PORT = 3005;
 const DB_URL = 'mongodb+srv://jesterowtf:M9ESeaROO1lbW0ko@cluster0.cudpkk6.mongodb.net/?retryWrites=true&w=majority'
 
 const app = express();
