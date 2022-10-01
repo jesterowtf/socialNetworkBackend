@@ -17,7 +17,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: "https://social-network-lemon.vercel.app/",
+  origin: ["https://social-network-lemon.vercel.app", "*"],
   credentials: true
 }));
 
