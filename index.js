@@ -17,7 +17,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: ["*"],
+  origin: ["*", "http://localhost:3000", "https://social-network-git-dev-jesterowtf.vercel.app", "https://social-network-lemon.vercel.app"],
   credentials: true
 }));
 
