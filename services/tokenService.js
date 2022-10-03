@@ -26,9 +26,7 @@ class tokenService {
 
   validateAccessToken(token) {
     try {
-      console.log('validate access token')
       const userData = jwt.verify(token, secret.secret);
-      console.log(userData)
       return userData;
     } catch (e) {
       return null;
@@ -38,7 +36,6 @@ class tokenService {
   validateRefreshToken(token) {
     try {
       const userData = jwt.verify(token, secret.refrsecret);
-
       return userData;
     } catch (e) {
       return null;

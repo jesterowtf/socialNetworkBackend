@@ -3,6 +3,7 @@ import UserController from "../controllers/userController.js";
 
 const usersRouter = new Router()
 usersRouter.get('/users', UserController.getAll)
+usersRouter.get('/friends', UserController.getFriends)
 usersRouter.get('/profile/:id', UserController.getOne)
 usersRouter.post('/users', UserController.create)
 usersRouter.post('/follow', UserController.follow)

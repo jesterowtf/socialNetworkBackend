@@ -17,6 +17,17 @@ class UserService {
     return users;
   }
 
+  async getFriends(authUserId) {
+    const authorizedUser = await User.findOne({"_id": authUserId})
+    const friendsId =  [...authorizedUser.followed]
+    const friends = await User.find({
+      _id: {$in: friendsId }
+    })
+    console.log(friendsId)
+    // let posts = await Post.find({}).populate('user').exec()
+    return friends;
+  }
+
   async getOne(id) {
     if (!id) {
       throw new Error("id не указан")
@@ -46,7 +57,7 @@ class UserService {
   }
 
   async update(user) {
-    console.log(user)
+
     if (!user._id) {
       throw new Error("id не указан")
     }

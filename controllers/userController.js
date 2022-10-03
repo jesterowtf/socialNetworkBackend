@@ -3,7 +3,6 @@ import userService from '../services/userService.js';
 class UserController {
   async create(req, res) {
     try {
-      console.log(req.files);
       const user = await userService.create(req.body, req.files.avatar)
       res.status(200).json(user)
     } catch (e) {
@@ -20,6 +19,15 @@ class UserController {
     }
   }
 
+  async getFriends(req, res) {
+    try {
+      const friends = await userService.getFriends(req.user.id)
+      return res.json(friends)
+    } catch (e) {
+      res.status(500).json(e)
+    }
+  }
+
   async getOne(req, res) {
     try {
       const foundUser = await userService.getOne(req.params.id)
@@ -31,8 +39,6 @@ class UserController {
 
   async follow(req, res) {
     try {
-      console.log(`req.user`, req.user)
-      console.log(`req.body`, req.body)
       const followUser = await userService.follow(req.user,req.body.user)
       return res.json(followUser);
     } catch (e) {
@@ -42,8 +48,6 @@ class UserController {
 
   async unfollow(req, res) {
     try {
-      console.log(`req.user`, req.user)
-      console.log(`req.body`, req.body)
       const followUser = await userService.unfollow(req.user,req.body.user)
       return res.json(followUser);
     } catch (e) {
@@ -53,6 +57,8 @@ class UserController {
 
   async update(req, res) {
     try {
+      console.log(`req.user`, req.user)
+      console.log(`req.body`, req.body)
       const updatedUser = await userService.update(req.body)
       return res.json(updatedUser);
     } catch (e) {

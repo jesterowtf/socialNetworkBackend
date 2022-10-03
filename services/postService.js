@@ -36,7 +36,6 @@ class postService {
     // let models = await User.find().skip(page).limit(count)
     const targetUser = await User.findById(id);
     const findedPosts = [...targetUser.posts];
-    console.log(findedPosts)
     const posts = await Post.find({
       '_id': {$in: findedPosts }
     }).populate('user').exec()
@@ -106,6 +105,7 @@ class postService {
   }
 
   async update(post) {
+    console.log(`post update service`, post)
     if (!post._id) {
       throw new Error("id не указан")
     }
