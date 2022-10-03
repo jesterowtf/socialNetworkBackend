@@ -32,7 +32,7 @@ app.use(cors({
 
 const storage = multer.diskStorage({
   destination: (_, __, cb) => {
-    cb(null, 'static/files/postImages')
+    cb(null, 'static')
   },
   filename: (_, file, cb) => {
     cb(null, file.originalname)

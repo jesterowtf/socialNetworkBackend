@@ -4,7 +4,7 @@ class UploadController {
       console.log(req.body);
 
       res.json({
-        url: `/static/files/postimages/${req.file.originalname}`
+        url: `/static/${req.file.originalname}`
       })
 
     } catch (e) {
