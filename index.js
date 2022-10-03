@@ -15,9 +15,18 @@ const DB_URL = 'mongodb+srv://jesterowtf:M9ESeaROO1lbW0ko@cluster0.cudpkk6.mongo
 
 const app = express();
 
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+  );
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
 
 app.use(cors({
-  origin: ["https://social-network-rho-azure.vercel.app"],
+  origin: ["http://localhost:3000", "https://social-network-rho-azure.vercel.app"],
   credentials: true
 }));
 
