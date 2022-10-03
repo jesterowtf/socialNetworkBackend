@@ -17,11 +17,9 @@ const app = express();
 
 
 app.use(cors({
-  // origin: ["*", "http://localhost:3000", "https://social-network-rho-azure.vercel.app", "social-network-rho-azure.vercel.app"],
+  origin: ["https://social-network-rho-azure.vercel.app"],
   credentials: true
 }));
-
-app.use(cors());
 
 const storage = multer.diskStorage({
   destination: (_, __, cb) => {
