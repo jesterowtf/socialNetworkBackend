@@ -17,7 +17,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: ["https://social-network-lemon.vercel.app", "http://localhost:3000", "*"],
+  origin: ["*"],
   credentials: true
 }));
 
