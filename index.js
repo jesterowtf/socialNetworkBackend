@@ -10,11 +10,15 @@ import {authMiddleware} from "./middleware/authMiddleware.js";
 import multer from "multer";
 import uploadRouter from "./routes/uploadRouter.js";
 import * as path from "path";
+import { fileURLToPath } from 'url';
 
 const PORT = 3005;
 const DB_URL = 'mongodb+srv://jesterowtf:M9ESeaROO1lbW0ko@cluster0.cudpkk6.mongodb.net/?retryWrites=true&w=majority'
 
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
