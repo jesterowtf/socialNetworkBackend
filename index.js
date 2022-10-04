@@ -57,10 +57,10 @@ app.use('/api', authRouter)
 app.use('/api', authMiddleware, usersRouter)
 app.use('/api', authMiddleware, postsRouter)
 // app.use('/upload', upload.single('image'), uploadRouter)
-app.use('/api/upload', upload.single('image'), (req, res) => {
+app.use('/api/upload', upload.single('image'), async (req, res) => {
 
   try {
-    console.log(req.body);
+    alert(__dirname);
 
     res.json({
       url: path.join(__dirname, `/static/${req.file.originalname}`)
