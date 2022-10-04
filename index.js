@@ -47,12 +47,12 @@ const upload = multer({storage})
 
 app.use(express.json())
 app.use(cookieParser())
-app.use('/static', express.static('static'))
+app.use('/static', express.static(path.join(__dirname, 'static')));
 
-app.use(express.static(path.join(__dirname, 'build')));
+// app.use(express.static(path.join(__dirname, 'static')));
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'static', 'index.html'));
 });
 
 
