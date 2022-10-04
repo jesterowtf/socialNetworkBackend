@@ -68,8 +68,8 @@ app.use('/upload', upload.single('image'), (req, res) => {
     console.log(req.body);
 
     res.json({
-      // url: path.join(__dirname, `/static/${req.file.originalname}`)
-      url: `/static/${req.file.originalname}`
+      url: path.join(__dirname, `/static/${req.file.originalname}`)
+      // url: `/static/${req.file.originalname}`
     })
 
   } catch (e) {
