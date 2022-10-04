@@ -59,15 +59,14 @@ app.use('/api', authMiddleware, postsRouter)
 // app.use('/upload', upload.single('image'), uploadRouter)
 app.use('/api/upload', upload.single('image'), async (req, res) => {
   try {
-
+    console.log(__dirname)
     res.json({
-      url: path.join(__dirname + `/tmp/${req.file.originalname}`)
+      url: path.join(process.cwd(), `/tmp/${req.file.originalname}`)
       // url: `/static/${req.file.originalname}`
     })
 
   } catch (e) {
-    // res.status(444).json(e)
-    res.json(__dirname)
+    res.status(444).json(e)
   }
 })
 
