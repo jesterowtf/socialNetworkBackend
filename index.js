@@ -49,6 +49,8 @@ app.use(express.json())
 app.use(cookieParser())
 // app.use('/static', express.static(path.join(__dirname, 'static')));
 
+app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use('/static', express.static(path.join(__dirname, 'build')));
 app.use('/static', express.static(path.join(__dirname, 'static')));
 
 // app.get('/*', function (req, res) {
@@ -66,7 +68,8 @@ app.use('/upload', upload.single('image'), (req, res) => {
     console.log(req.body);
 
     res.json({
-      url: path.join(__dirname, `/static/${req.file.originalname}`)
+      // url: path.join(__dirname, `/static/${req.file.originalname}`)
+      url: `/static/${req.file.originalname}`
     })
 
   } catch (e) {
