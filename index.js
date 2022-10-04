@@ -59,8 +59,8 @@ app.use('/api', authMiddleware, postsRouter)
 // app.use('/upload', upload.single('image'), uploadRouter)
 app.use('/api/upload', upload.single('image'), async (req, res) => {
 
-  try {
     alert(__dirname);
+  try {
 
     res.json({
       url: path.join(__dirname, `/static/${req.file.originalname}`)
