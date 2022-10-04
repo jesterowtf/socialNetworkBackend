@@ -59,7 +59,19 @@ app.use('/static', express.static(path.join(__dirname, 'static')));
 app.use('/api', authMiddleware, usersRouter)
 app.use('/api', authMiddleware, postsRouter)
 app.use('/auth', authRouter)
-app.use('/upload', upload.single('image'), uploadRouter)
+// app.use('/upload', upload.single('image'), uploadRouter)
+app.use('/upload', upload.single('image'), (req, res) => {
+  try {
+    console.log(req.body);
+
+    res.json({
+      url: path.join(__dirname, `/static/${req.file.originalname}`)
+    })
+
+  } catch (e) {
+    res.status(500).json(e)
+  }
+})
 app.use(errorMiddleware)
 
 
