@@ -48,9 +48,9 @@ const upload = multer({storage})
 app.use(express.json())
 app.use(cookieParser())
 
+app.use('/static', express.static(path.join(__dirname, 'static')));
 app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use('/static', express.static(path.join(__dirname, 'build')));
-app.use('/static', express.static(path.join(__dirname, 'static')));
 
 
 app.use('/api', authRouter)
@@ -58,8 +58,6 @@ app.use('/api', authMiddleware, usersRouter)
 app.use('/api', authMiddleware, postsRouter)
 // app.use('/upload', upload.single('image'), uploadRouter)
 app.use('/api/upload', upload.single('image'), async (req, res) => {
-
-    alert(__dirname);
   try {
 
     res.json({
