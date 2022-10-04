@@ -61,7 +61,7 @@ app.use('/api/upload', upload.single('image'), async (req, res) => {
   try {
 
     res.json({
-      url: path.join(__dirname, `/tmp/${req.file.originalname}`)
+      url: `/tmp/static/${req.file.originalname}`
       // url: `/static/${req.file.originalname}`
     })
 
