@@ -37,7 +37,7 @@ app.use(cors({
 
 const storage = multer.diskStorage({
   destination: (_, __, cb) => {
-    cb(null, 'static')
+    cb(null, '/tmp')
   },
   filename: (_, file, cb) => {
     cb(null, file.originalname)
@@ -61,7 +61,7 @@ app.use('/api/upload', upload.single('image'), async (req, res) => {
   try {
 
     res.json({
-      url: `/tmp/static/${req.file.originalname}`
+      url: `/tmp/${req.file.originalname}`
       // url: `/static/${req.file.originalname}`
     })
 
