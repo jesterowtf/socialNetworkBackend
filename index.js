@@ -77,7 +77,7 @@ app.use('/upload', upload.single('image'), (req, res) => {
     res.json(__dirname)
   }
 })
-app.use(errorMiddleware)
+// app.use(errorMiddleware)
 
 
 
