@@ -61,6 +61,7 @@ app.use('/api', authMiddleware, postsRouter)
 app.use('/auth', authRouter)
 // app.use('/upload', upload.single('image'), uploadRouter)
 app.use('/upload', upload.single('image'), (req, res) => {
+
   try {
     console.log(req.body);
 
@@ -69,7 +70,7 @@ app.use('/upload', upload.single('image'), (req, res) => {
     })
 
   } catch (e) {
-    res.status(500).json(e)
+    res.status(444).json(e)
   }
 })
 app.use(errorMiddleware)
