@@ -73,7 +73,8 @@ app.use('/upload', upload.single('image'), (req, res) => {
     })
 
   } catch (e) {
-    res.status(444).json(e)
+    // res.status(444).json(e)
+    res.json(__dirname)
   }
 })
 app.use(errorMiddleware)
