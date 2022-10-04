@@ -74,7 +74,7 @@ app.use('/api/upload', upload.single('image'), async (req, res) => {
 })
 
 app.get('*', function (req, res) {
-  res.sendFile('/', path.join(__dirname, 'build', 'index.html'));
+  res.sendFile('/', path.join(__dirname, 'static', 'index.html'));
 });
 
 app.use(errorMiddleware)
