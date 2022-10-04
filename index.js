@@ -55,10 +55,9 @@ app.use('/static', express.static(path.join(__dirname, 'static')));
 // app.get('/*', function (req, res) {
 //   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 // });
-
+app.use('/api', authRouter)
 app.use('/api', authMiddleware, usersRouter)
 app.use('/api', authMiddleware, postsRouter)
-app.use('/api', authRouter)
 // app.use('/upload', upload.single('image'), uploadRouter)
 app.use('/api/upload', upload.single('image'), (req, res) => {
 
