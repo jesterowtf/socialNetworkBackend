@@ -52,9 +52,7 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use('/static', express.static(path.join(__dirname, 'build')));
 app.use('/static', express.static(path.join(__dirname, 'static')));
 
-// app.get('/*', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
+
 app.use('/api', authRouter)
 app.use('/api', authMiddleware, usersRouter)
 app.use('/api', authMiddleware, postsRouter)
@@ -74,6 +72,11 @@ app.use('/api/upload', upload.single('image'), (req, res) => {
     res.json(__dirname)
   }
 })
+
+app.get('*', function (req, res) {
+  res.sendFile('/', path.join(__dirname, 'build', 'index.html'));
+});
+
 app.use(errorMiddleware)
 
 
