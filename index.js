@@ -60,7 +60,7 @@ app.use('/api', authMiddleware, usersRouter)
 app.use('/api', authMiddleware, postsRouter)
 app.use('/auth', authRouter)
 // app.use('/upload', upload.single('image'), uploadRouter)
-app.use('/api/upload', upload.single('image'), (req, res) => {
+app.use('/upload', upload.single('image'), (req, res) => {
 
   try {
     console.log(req.body);
