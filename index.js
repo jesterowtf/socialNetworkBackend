@@ -9,6 +9,7 @@ import postsRouter from "./routes/postsRouter.js";
 import {authMiddleware} from "./middleware/authMiddleware.js";
 import multer from "multer";
 import uploadRouter from "./routes/uploadRouter.js";
+import * as path from "path";
 
 const PORT = 3005;
 const DB_URL = 'mongodb+srv://jesterowtf:M9ESeaROO1lbW0ko@cluster0.cudpkk6.mongodb.net/?retryWrites=true&w=majority'
@@ -38,12 +39,19 @@ const storage = multer.diskStorage({
     cb(null, file.originalname)
   }
 })
-
 const upload = multer({storage})
 
 app.use(express.json())
 app.use(cookieParser())
-app.use('/static', express.static('static'))
+// app.use('/static', express.static('static'))
+
+app.use(express.static(path.join(__dirname, 'static')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'static', 'index.html'));
+});
+
+
 app.use('/api', authMiddleware, usersRouter)
 app.use('/api', authMiddleware, postsRouter)
 app.use('/auth', authRouter)
