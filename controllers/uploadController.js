@@ -1,7 +1,6 @@
 class UploadController {
   async upload(req, res) {
     try {
-      console.log(req.body);
 
       res.json({
         url: `/static/${req.file.originalname}`

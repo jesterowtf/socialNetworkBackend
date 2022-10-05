@@ -23,7 +23,6 @@ class UserService {
     const friends = await User.find({
       _id: {$in: friendsId }
     })
-    console.log(friendsId)
     // let posts = await Post.find({}).populate('user').exec()
     return friends;
   }
