@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 
 const Post = new mongoose.Schema(
   {
-    title: {type: String, required: true},
     text: {type: String, required: true},
     image: {type: String},
     tags: {type: Array, default: []},
