@@ -6,7 +6,7 @@ class tokenService {
   async generateTokens(payload) {
     const accessToken = jwt.sign(payload, secret.secret, {expiresIn: "24h"})
     const refreshToken = jwt.sign(payload, secret.refrsecret, {expiresIn: "30d"})
-    // console.log(accessToken)
+    console.log(accessToken)
     // console.log(refreshToken)
     return {
       accessToken,

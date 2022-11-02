@@ -5,7 +5,6 @@ class postService {
   async create(post, user) {
     // const fileName = fileService.saveImagePost(image)
     const createdPost = await new Post({
-      title: post.title,
       text: post.text,
       tags: post.tags,
       image: post.image,
